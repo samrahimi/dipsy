@@ -1,15 +1,19 @@
-site_name: DSPy
-site_description: The framework for programming—rather than prompting—language models.
-site_url: https://dspy.ai/
+site_name: dipsy
+site_description: Declarative Multi-Agent Systems on DSPy - YAML-based agent definitions with hierarchical subagents
+site_url: https://samrahimi.github.io/dipsy/
 
-repo_url: https://github.com/stanfordnlp/dspy
-repo_name: stanfordnlp/dspy
+repo_url: https://github.com/samrahimi/dipsy
+repo_name: samrahimi/dipsy
 
 edit_uri: blob/main/docs/docs/
 docs_dir: "docs/"
 
 nav:
     - Get Started: index.md
+    - dipsy Features:
+        - YAML Agent Definitions: learn/dipsy/yaml-agents.md
+        - Conversational Agents: learn/dipsy/conversational-agents.md
+        - Hierarchical Multi-Agent Systems: learn/dipsy/multi-agent-systems.md
     - Learn DSPy:
         - Learning DSPy: learn/index.md
         - DSPy Programming:
