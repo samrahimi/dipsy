@@ -1,0 +1,7 @@
+# Math expert agent — has access to a calculator tool.
+# Can be used standalone or as a subagent of an orchestrator.
+
+signature: "question -> answer"
+
+tools:
+  - ../tools/calculator_tool.py

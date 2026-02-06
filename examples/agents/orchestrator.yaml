@@ -1,0 +1,20 @@
+# Orchestrator agent — delegates to specialist subagents.
+#
+# The orchestrator has no tools of its own. It routes questions to the
+# appropriate subagent, each of which is a full ReAct agent with its
+# own tools and conversation memory.
+#
+# Run with:
+#   python examples/conversational_agent_demo.py --agent examples/agents/orchestrator.yaml
+
+signature: "question -> answer"
+model: "openai/gpt-4o-mini"
+
+subagents:
+  - name: researcher
+    description: "Delegate research and information-lookup questions to this agent. It can search for facts and general knowledge."
+    agent: ./researcher.yaml
+
+  - name: math_expert
+    description: "Delegate math, arithmetic, and calculation questions to this agent. It can evaluate mathematical expressions."
+    agent: ./math_expert.yaml

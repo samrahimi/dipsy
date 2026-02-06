@@ -1,0 +1,43 @@
+# Orchestrator with inline subagent definitions
+#
+# This example shows how to define subagents directly in the same file
+# rather than referencing separate YAML files. This is useful for simpler
+# workflows where you want everything in one place.
+#
+# Run with:
+#   python examples/conversational_agent_demo.py --agent examples/agents/orchestrator_inline.yaml
+
+signature: "question -> answer"
+model: "openai/gpt-4o-mini"
+
+subagents:
+  # Inline subagent definition - no separate file needed!
+  - name: researcher
+    description: "Delegate research and information-lookup questions to this agent. It can search for facts and general knowledge."
+    agent:
+      signature: "question -> answer"
+      tools:
+        - ../tools/search_tool.py
+
+  # Another inline subagent
+  - name: math_expert
+    description: "Delegate math, arithmetic, and calculation questions to this agent. It can evaluate mathematical expressions."
+    agent:
+      signature: "question -> answer"
+      tools:
+        - ../tools/calculator_tool.py
+      max_iters: 10  # Can customize settings per subagent
+
+# You can also mix inline and file-based subagents in the same parent:
+#
+# subagents:
+#   - name: researcher
+#     description: "..."
+#     agent: ./researcher.yaml        # External file
+#
+#   - name: math_expert
+#     description: "..."
+#     agent:                           # Inline definition
+#       signature: "question -> answer"
+#       tools:
+#         - ../tools/calculator_tool.py

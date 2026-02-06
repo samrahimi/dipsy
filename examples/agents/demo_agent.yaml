@@ -1,0 +1,19 @@
+# Demo agent definition for the conversational agent CLI.
+#
+# Run with:
+#   python examples/conversational_agent_demo.py --agent examples/agents/demo_agent.yaml
+#
+# Override model from CLI:
+#   python examples/conversational_agent_demo.py --agent examples/agents/demo_agent.yaml --model openai/gpt-4o
+
+signature: "question -> answer"
+model: "openai/gpt-4o-mini"
+
+tools:
+  - ../tools/search_tool.py
+  - ../tools/calculator_tool.py
+
+# Optional settings (defaults shown):
+# max_iters: 20
+# compression: concise
+# max_context_turns: 20

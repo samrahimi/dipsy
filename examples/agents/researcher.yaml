@@ -1,0 +1,7 @@
+# Research agent — has access to a search tool.
+# Can be used standalone or as a subagent of an orchestrator.
+
+signature: "question -> answer"
+
+tools:
+  - ../tools/search_tool.py
